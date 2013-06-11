@@ -6,5 +6,21 @@
     <string name="hello_world">Hello world!</string>
     <!-- TODO: 実習1: ここから下に、日本語の String リソースを作る -->
     <!-- TODO: 実習2: 日本語の String リソースに対応する英語リソースを作る -->
+	
+	<string-array name="japanese">
+        <item>こんにちわ</item>
+        <item>さよなら</item>
+        <item>おはようございます</item>
+        <item>ありがとうございます</item>
+        <item>大丈夫</item>               
+    </string-array>
 
+	<string-array name="english">
+        <item>Hello</item>
+        <item>Bye</item>
+        <item>Good Morning</item>
+        <item>Thank you</item>
+        <item>ok</item>               
+    </string-array>
+    
 </resources>
