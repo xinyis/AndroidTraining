@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#393939">
     <!-- TODO: 左側から順に、下記の View を配置していき、そのまとまりを画面上部に揃える -->
     
     <!-- 1. プロフィール画像(ic_launcher)と、それを囲う四角形の枠、その下に プロフィール と書かれた文字 -->
@@ -15,6 +16,101 @@
     <!-- Hint: 3. 区切り線を引く専用の UI はありません。背景色を android:background="#393939" にして、区切り線ぽく扱う工夫が必要です -->
     <!-- Hint: 4. 均等割付するボタンの画像は、左から android:src="@android:drawable/ic_menu_call", android:src="@android:drawable/ic_menu_send", android:src="@android:drawable/ic_menu_share" です -->
     <!-- TODO: 上記のまとまりの下に、幅 1 dp の区切り線を引く -->
+
+	<RelativeLayout
+	    android:id="@+id/profile"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="#393939"
+	    android:paddingBottom="2dp">
+	    
+		 <RelativeLayout
+	        android:id="@+id/profile_left"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="left"
+	        android:background="#C0C0C0">
+	    <ImageView
+	        android:id="@+id/imageView1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_margin="10dp"
+	        android:background="@drawable/frame"
+	        android:src="@android:drawable/sym_def_app_icon" />	   
+
+	    <TextView
+   			android:id="@+id/name"
+           	android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+          	android:layout_below="@+id/imageView1"
+            android:text="プロフィル"
+            android:textSize="10dp" 
+            android:padding="5dp"/>
+	    </RelativeLayout>
+	    
+	        	        
+	       <RelativeLayout
+	            android:id="@+id/profile_right_top"
+	        	android:layout_width="match_parent"
+	        	android:layout_height="wrap_content"
+	        	android:layout_toRightOf="@+id/profile_left"        	
+	        	android:background="#C0C0C0"
+	        	android:layout_marginBottom="1dp"> 				
+   				<TextView
+   				    android:id="@+id/name"
+           			android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+            		android:layout_centerVertical="true"
+            		android:text="Keith Yokoma"
+            		android:textSize="20dp" 
+            		android:padding="5dp"/>
+
+   				<ImageView
+   				    android:id="@+id/imageView2"
+   				    android:layout_width="wrap_content"
+   				    android:layout_height="wrap_content"
+   				    android:layout_centerVertical="true"
+   				    android:layout_toRightOf="@+id/name"
+   				    android:layout_marginRight="10dp"
+   				    android:src="@android:drawable/ic_menu_more" />
+           	    	
+	    	</RelativeLayout>
+	    	
+	    <LinearLayout
+	        android:id="@+id/buttons"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" 
+	        android:orientation="horizontal"
+	        android:layout_below="@+id/profile_right_top"
+	        android:layout_toRightOf="@+id/profile_left"        	
+	        android:background="#C0C0C0"
+	        android:paddingTop="5dp"
+	        android:paddingBottom="1dp">
+   				
+			<ImageButton
+	    		android:id="@+id/imageButton1"
+	    		android:layout_width="0dp"
+	    		android:layout_weight="1"
+	    		android:layout_height="wrap_content"
+	    		android:src="@android:drawable/ic_menu_call" />
+
+			<ImageButton
+	    		android:id="@+id/imageButton2"
+	    		android:layout_width="0dp"
+	    		android:layout_weight="1"
+	    		android:layout_height="wrap_content"
+	    		android:src="@android:drawable/ic_menu_send" />
+
+			<ImageButton
+	    		android:id="@+id/imageButton2"
+	    		android:layout_width="0dp"
+	    		android:layout_weight="1"
+	    		android:layout_height="wrap_content"
+	    		android:src="@android:drawable/ic_menu_share" />	
+		</LinearLayout>
+	
+	</RelativeLayout>
+
 
 
     <!-- TODO: 左側から順に、下記の View を配置していき、そのまとまりを画面下部に揃える -->
@@ -31,67 +127,126 @@
 
     <!-- TODO: 上記の View の上に、お知らせを表示する View を配置する -->
     <!-- Hint: 1. お知らせを表示する View の背景は android:background="@drawable/notify_button_state_list" にします -->
-
-	<RelativeView
-	    android:id="@+id/profile"
+	<RelativeLayout
+	    android:id="@+id/center"
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content" >
+	    android:layout_height="270dp"
+	    android:background="#C0C0C0"
+	    android:paddingBottom="2dp"
+	    android:layout_below="@+id/profile">
+	    <TextView
+   				    android:id="@+id/notification"
+           			android:layout_width="match_parent"
+            		android:layout_height="wrap_content"
+            		android:text="30件のお知らせがあります"
+            		android:layout_alignParentBottom="true"
+            		android:background="#F5A9F2"
+            		android:textSize="20dp" 
+            		android:padding="5dp"/>
+	    
+	 </RelativeLayout>
+  
+	 <LinearLayout
+	            android:id="@+id/down"
+	        	android:layout_width="match_parent"
+	        	android:layout_height="100dp"
+	        	android:layout_below="@+id/center"
+	        	android:gravity="bottom"        	
+	        	android:background="#393939"
+	        	android:layout_marginTop="1dp"> 	
+	  	
+	     <RelativeLayout
+	        android:id="@+id/bottom_left"
+	        android:layout_width="0dp"
+	        android:layout_weight="1"
+	        android:layout_height="fill_parent"
+	        android:layout_gravity="left"
+	        android:background="#C0C0C0"
+	        android:layout_marginRight="1dp">
+			<ImageView
+	        	android:id="@+id/bottom_img1"
+	        	android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"	
+	        	android:layout_margin="10dp"
+	        	android:background="@drawable/frame"
+	        	android:gravity="center"
+	        	android:layout_centerHorizontal="true"      
+	        	
+	        	android:src="@android:drawable/sym_def_app_icon" />
 
-	    <EditText
-	        android:id="@+id/editText1"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentTop="true"
-	        android:layout_toRightOf="@+id/imageView1"
-	        android:ems="10" />
+	    	<TextView
+	    	    android:id="@+id/bottom_txt1"
+	    	    android:layout_width="wrap_content"
+	    	    android:layout_height="wrap_content"
+	    	    android:layout_alignParentLeft="true"
+	    	    android:layout_below="@+id/bottom_img1"
+	    	    android:layout_marginLeft="10dp"
+	    	    android:layout_marginRight="10dp"
+	    	    android:gravity="center"
+	    	    android:padding="5dp"
+	    	    android:layout_centerHorizontal="true"      
+	    	    android:text="メニュー"
+	    	    android:textSize="10dp" />
 
-	    <ImageView
-	        android:id="@+id/imageView1"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentLeft="true"
-	        android:layout_alignParentTop="true"
-	        android:layout_marginLeft="18dp"
-	        android:layout_marginTop="18dp"
-	        android:background="@drawable/frame"
-	        android:src="@android:drawable/sym_def_app_icon" />
+	    </RelativeLayout>
+	     
+	    <RelativeLayout
+	        android:id="@+id/bottom_center"
+	        android:layout_width="0dp"
+	        android:layout_weight="2"
+	        android:layout_height="fill_parent"
+	        android:layout_toRightOf="@+id/bottom_left"
+	        android:background="#C0C0C0"
+	         android:layout_marginRight="1dp">
+			<ImageView
+	        	android:id="@+id/bottom_img2"
+	        	android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"	
+	        	android:layout_margin="10dp"
+	        	android:background="@drawable/frame"
+	        	android:layout_centerVertical="true"      
+	        	android:src="@android:drawable/sym_def_app_icon" />	   
+	    	<TextView
+   				android:id="@+id/bottom_txt2"
+           		android:layout_width="wrap_content"
+          		android:layout_height="wrap_content"
+          		android:layout_toRightOf="@+id/bottom_img2"
+				android:layout_centerVertical="true"      
+            	android:text="つぶやきを投稿"
+            	android:textSize="10dp" 
+            	android:padding="5dp"/>
+	    </RelativeLayout> 
+	    
+	    <RelativeLayout
+	        android:id="@+id/bottom_right"
+	        android:layout_width="0dp"
+	        android:layout_weight="1"	        
+	        android:layout_height="fill_parent"
+	        android:layout_toRightOf="@+id/bottom_center"
+	        android:background="#C0C0C0">
+			<ImageView
+	        	android:id="@+id/bottom_img3"
+	        	android:layout_width="wrap_content"
+	        	android:layout_height="wrap_content"	
+	        	android:layout_margin="10dp"
+	        	android:layout_centerHorizontal="true"      
+	        	
+	        	android:background="@drawable/frame"
+	        	android:src="@android:drawable/sym_def_app_icon" />	   
 
-	    <ImageView
-	        android:id="@+id/imageView2"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignLeft="@+id/editText1"
-	        android:layout_below="@+id/editText1"
-	        android:layout_marginLeft="21dp"
-	        android:layout_marginTop="14dp"
-	        android:background="@drawable/button_state_list"
-	        android:src="@android:drawable/ic_menu_call" />
+	    	<TextView
+	    	    android:id="@+id/bottom_txt3"
+	    	    android:layout_width="wrap_content"
+	    	    android:layout_height="wrap_content"
+	    	    android:layout_below="@+id/bottom_img3"
+	    	    android:padding="5dp"
+	    	    android:layout_centerHorizontal="true"      	    	    
+	    	    android:text="最近"
+	    	    android:textSize="10dp" />
+	    </RelativeLayout> 
+	
+	   </LinearLayout>
 
-	    <ImageView
-	        android:id="@+id/imageView3"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_below="@+id/imageView1"
-	        android:layout_centerHorizontal="true" />
 
-	    <ImageView
-	        android:id="@+id/imageView4"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignRight="@+id/imageView3"
-	        android:layout_alignTop="@+id/imageView2"
-	        android:background="@drawable/button_state_list"
-	        android:src="@android:drawable/ic_menu_send" />
-
-	    <ImageView
-	        android:id="@+id/imageView5"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignTop="@+id/imageView4"
-	        android:layout_marginLeft="18dp"
-	        android:layout_toRightOf="@+id/imageView3"
-	        android:background="@drawable/button_state_list"
-	        android:src="@android:drawable/ic_menu_share" />
-	</RelativeView>
 	
 </RelativeLayout>
